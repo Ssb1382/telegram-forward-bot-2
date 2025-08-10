@@ -8,7 +8,7 @@ MY_ID = 1905094596
 async def forward_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     sender = update.message.from_user
     if update.message.text:
-        msg =" sms {}:
+        msg = "sms {}:
 {}".format(sender.first_name, update.message.text)
         await context.bot.send_message(chat_id=MY_ID, text=msg)
     else:
