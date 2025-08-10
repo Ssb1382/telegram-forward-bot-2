@@ -2,19 +2,16 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
-# ========== تنظیمات ==========
 BOT_TOKEN = "8379742321:AAEef6P1oYZr0r-Ud8Yt1DaUBCo_7U7HhQI"
 MY_ID = 1905094596
 
 async def forward_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     sender = update.message.from_user
-    # اگر پیام متنی بود
     if update.message.text:
-        msg = "پیام از {}:
+        msg = sms {}:
 {}".format(sender.first_name, update.message.text)
         await context.bot.send_message(chat_id=MY_ID, text=msg)
     else:
-        # برای عکس، ویدئو، صدا و فایل‌ها
         await context.bot.forward_message(
             chat_id=MY_ID,
             from_chat_id=update.message.chat_id,
